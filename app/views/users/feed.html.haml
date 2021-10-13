@@ -1,0 +1,13 @@
+%p#notice= notice
+%p#alert= alert
+%h1 Feed of #{@user.name} (id : #{@user.id})
+.container
+  .row
+    .col
+      - User.find(@user.id).followees.each do |followee|
+        - followee.posts.each do |post|
+          .d-flex.p-2.border.border-primary.rounded user : #{followee.name} <br> Msg : #{post.msg} <br> Created-at : #{post.created_at} <br> Updated-at : #{post.updated_at}
+          <br>
+    .col
+      = link_to 'Post', :new_post, class: 'btn btn-outline-primary'
+
