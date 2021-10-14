@@ -4,10 +4,9 @@
 .container
   .row
     .col
-      - User.find(@user.id).followees.each do |followee|
-        - followee.posts.each do |post|
-          .d-flex.p-2.border.border-primary.rounded user : #{followee.name} <br> Msg : #{post.msg} <br> Created-at : #{post.created_at} <br> Updated-at : #{post.updated_at}
-          <br>
+      -@allpost.each do |post|
+        .d-flex.p-2.border.border-primary.rounded Username : #{User.find(post.user_id).name} (id : #{post.user_id}) <br> Msg : #{post.msg} <br> Created-at : #{post.created_at} <br> Updated-at : #{post.updated_at}
+        %p
     .col
       = link_to 'Post', :new_post, class: 'btn btn-outline-primary'
 

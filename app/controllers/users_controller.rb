@@ -91,7 +91,7 @@ class UsersController < ApplicationController
 			@allpost.push(post)
 		end
 	end
-	@allpost = @allpost.sort_by{ |post| post.created_at}
+	@allpost = @allpost.sort_by{ |created_at| created_at }
   end
   
   def view_profile
